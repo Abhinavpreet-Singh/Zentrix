@@ -64,3 +64,39 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Local Development Setup
+
+To run this application locally, ensure you have **Laravel Herd** (or PHP 8.1+ & Nginx/Apache) and **MySQL 8.0** running.
+
+### 1. Database Setup
+- Create a MySQL database named `myad`.
+- Import the database dump from the `db` folder:
+  ```bash
+  mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS myad;"
+  mysql -u root -p myad < db/db.sql
+  ```
+- Configure your database credentials in the `.env` file (e.g., `DB_PASSWORD=Abhi@@123`).
+
+### 2. Run Development Server
+Laravel Herd serves the project automatically. If you need to compile assets or watch for frontend changes, run:
+```bash
+npm install
+npm run dev
+```
+
+### 3. Accessing the Application
+- **Main Login Page**: [http://da.adlynk.in.test/](http://da.adlynk.in.test/)
+- **HTML Calendar Template Page**: [http://da.adlynk.in.test/html-page](http://da.adlynk.in.test/html-page)
+  - *Note: This loads the blade-rendered version of the app-calendar template with asset paths correctly mapped.*
+
+### 4. Running Selenium Automation
+To run the automated login form test script locally:
+```bash
+# Ensure selenium is installed
+pip install selenium
+
+# Run the test script (opens Chrome, fills fields, exits)
+python selenium_login_test.py
+```
+
