@@ -20,6 +20,9 @@ Route::domain(parse_url(env('APP_URL', 'http://da.adlynk.in.test'), PHP_URL_HOST
     Route::get('login/{driver}/start', [App\Http\Controllers\Caller\LoginController::class, 'redirectToProvider']);
     Route::any('login/{driver}/callback', [App\Http\Controllers\Caller\LoginController::class, 'handleProviderCallback']);
     Route::any('logout', [App\Http\Controllers\Caller\LoginController::class, 'Logout']);
+    Route::get('html-page', function () {
+        return view('app-calendar');
+    });
     Route::middleware(['auth:web'])->group(function () {
     });
 });
